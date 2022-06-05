@@ -63,13 +63,16 @@ function App() {
     <div className="app">
       {showScore ? (
         <div className="score-section">
-          Você pontuou {score} de {questions.length}
+          You scored {score} out of {questions.length}
         </div>
       ) : (
         <>
           <div className="question-section">
-            <div className="question-count">
-              <span>Questão {currentQuestion + 1}</span>/{questions.length}
+            <div className="question-count"> 
+            <h4>Points</h4> <small>{score}</small>
+             <div>Right Ans <progress className="rightans" value={score} max={4} />Wrong Ans <progress className="rightans" value={score} max={4} /></div> 
+              <span>Question {currentQuestion + 1}</span>/{questions.length}
+            
             </div>
             <div className="question-text">
               {questions[currentQuestion].questionText}
@@ -88,7 +91,9 @@ function App() {
               )
             )}
           </div>
+         
         </>
+         
       )}
     </div>
   );
